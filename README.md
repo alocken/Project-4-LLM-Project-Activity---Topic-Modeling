@@ -11,6 +11,8 @@ Develop a Topic Modeling tool (NLP project using a pre-trained language model), 
 
 Theme will look to identify underlying topics/themes from the large collections of news groups.
 
+Note: uploading notebooks from Google Colab to GitHub presented issues regarding metadata widgets which generated an 'Invalid Notebook'. To work around this error and issue, applied code to remove the metadata widgets and maintain the outputs. This generated a clean notebook in Colab that was successfully loaded into GitHub but noted in some notebooks (e.g., 3-pre-trained model) that some of preprocess code indicates 0% but was in fact complete as supported by the continued outputs in the code following. Confirmed the outputs and evalutaions are correct.
+
 ## Dataset
 (fill in details about the dataset you're using)
 Dataset used was the Topic Modeling SetFit/20_newsgroups (https://huggingface.co/datasets/SetFit/20_newsgroups).
