@@ -8,6 +8,7 @@ Develop a Topic Modeling tool (NLP project using a pre-trained language model), 
 - utilizing transfer learning for model development
 - evaluating and optimizing model performance, and
 - completed final project report
+
 Theme will look to identify underlying topics/themes from the large collections of news groups.
 
 ## Dataset
