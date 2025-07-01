@@ -11,6 +11,10 @@ Develop a Topic Modeling tool (NLP project using a pre-trained language model), 
 
 Theme will look to identify underlying topics/themes from the large collections of news groups.
 
+Improvements implemented in project:
+-  Observed that connectivty impacted ability to complete the full runtime required to complete the train. In response, updated runtime type from CPU to GPU. This significantly improved duration of runtime and eliminated connectivity issues impacting training.
+-  Implemented check points saves mounted to Google Drive folder to improve ability to retrieve training if connectivity resulted in issues and loss of progress on train.
+-  
 Note: uploading notebooks from Google Colab to GitHub presented issues regarding metadata widgets which generated an 'Invalid Notebook'. To work around this error and issue, applied code to remove the metadata widgets and maintain the outputs. This generated a clean notebook in Colab that was successfully loaded into GitHub but noted in some notebooks (e.g., 3-pre-trained model) that some of preprocess code indicates 0% but was in fact complete as supported by the continued outputs in the code following. Confirmed the outputs and evalutaions are correct.
 
 ## Dataset
@@ -29,15 +33,15 @@ This is a BERTopic model. BERTopic is a flexible and modular topic modeling fram
 (fill in details about your chosen metrics and results)
 
 Metrics selected to evaluate performance of model:
-Accuracy - indicates the overall percentage of correctly classified documents and provides fast baseline that is used for balanced classes but it is simple, and can potentially be misleading if some classes are more frequent.
-F1 - focuses on precision and recall and if they are high, then F1 will be high. 
-Precision - measureing the proportion of correctly predicted positive observations out of all predicted positive observations. Ideal value is close to 1.
-Recall - proportion of correctly predicted positive observations out of all actual positive observations. Ideal value is close to 1.
-Roc Auc (Receiver Operating Characteristic - Area Under Curve) - measures how well the model distinguishes between positive and negative classes. Plots true positive rate (recall) against false positive rate at various thresholds: 1=perfect classification, .5=not better than random guessing, <.5=worse than random (indicates something wrong). Ideal value is close to 1.
+- Accuracy - indicates the overall percentage of correctly classified documents and provides fast baseline that is used for balanced classes but it is simple, and can potentially be misleading if some classes are more frequent. Measures the proportion of correct answers provided by the model.
+- F1 - focuses on precision and recall and if they are high, then F1 will be high. Measures model accuracy in classifcication tasks, considering both precision (number correct positive results divided by number of all positive results) and recall (number of correct positive results divided by number of positive results that should have been identified).
+- Precision - measureing the proportion of correctly predicted positive observations out of all predicted positive observations. Ideal value is close to 1.
+- Recall - proportion of correctly predicted positive observations out of all actual positive observations. Ideal value is close to 1.
 
-F1 selectd to determine best model at end of train.
+Outputs Summary:from epoch 1 to 2, training loss decreased (1.68 to 1.00), validation loss decerased (1.12 to 1.05), and all metrics (accuracy, F1, precision, recall) improved. Model is learning well and generalizing better. The loss and metrics indicate good overall learning progress. 
 
-During train, performed one epoch, reduced from two, due to time required to run two (14 hours versus 7 hoursa. Also, experienced issues with connectivity interupting runtime and in response increased the frequency of checkpoints to save every 15 steps to enure storing the most recent 3 saves in the event the runtime was interupted mid-run. This ensured progress would not be lost and coudl be restored to the most recent checkpoint as/if required.
+Extra step: 
+Added in an extra step in model training as was curious about outputs if reduced epoch and increased steps to embed evaluation during training. Outputs identified F1 as the measurement for 'best' model. Although not saved as the final model, it was an interesting comparative exercise to demonstrate and visualize the different outputs. This additional step has been included in notebook.
 
 ## Hyperparameters
 (fill in details about which hyperparemeters you found most important/relevant while optimizing your model)
