@@ -28,9 +28,16 @@ This is a BERTopic model. BERTopic is a flexible and modular topic modeling fram
 ## Performance Metrics
 (fill in details about your chosen metrics and results)
 
-Two metrics selected to evaluate performance of model:
+Metrics selected to evaluate performance of model:
 Accuracy - indicates the overall percentage of correctly classified documents and provides fast baseline that is used for balanced classes but it is simple, and can potentially be misleading if some classes are more frequent.
-F1 ('weighted')- F1 focuses on precision and recall and if they are high then F1 will be high. Like macro F1 score where provides the mean of precision and recall per class and averaged working well when used for imbalanced classes as it applies equal treatment across categories, but in weighted it classe by frequency. Output will focus on overall performance to reflect class imbalance. 
+F1 - focuses on precision and recall and if they are high, then F1 will be high. 
+Precision - measureing the proportion of correctly predicted positive observations out of all predicted positive observations. Ideal value is close to 1.
+Recall - proportion of correctly predicted positive observations out of all actual positive observations. Ideal value is close to 1.
+Roc Auc (Receiver Operating Characteristic - Area Under Curve) - measures how well the model distinguishes between positive and negative classes. Plots true positive rate (recall) against false positive rate at various thresholds: 1=perfect classification, .5=not better than random guessing, <.5=worse than random (indicates something wrong). Ideal value is close to 1.
+
+F1 selectd to determine best model at end of train.
+
+During train, performed one epoch, reduced from two, due to time required to run two (14 hours versus 7 hoursa. Also, experienced issues with connectivity interupting runtime and in response increased the frequency of checkpoints to save every 15 steps to enure storing the most recent 3 saves in the event the runtime was interupted mid-run. This ensured progress would not be lost and coudl be restored to the most recent checkpoint as/if required.
 
 ## Hyperparameters
 (fill in details about which hyperparemeters you found most important/relevant while optimizing your model)
