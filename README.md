@@ -28,7 +28,7 @@ This is a BERTopic model. BERTopic is a flexible and modular topic modeling fram
 
 Two metrics selected to evaluate performance of model:
 Accuracy - indicates the overall percentage of correctly classified documents and provides fast baseline that is used for balanced classes but it is simple, and can potentially be misleading if some classes are more frequent.
-F1 ('Macro')- provides the mean of precision and recall per class and averaged. This works well when used for imbalanced classes as it applies equal treatment across categories.F1 focuses on precision and recall and if they are high then F1 will be high.
+F1 ('weighted')- F1 focuses on precision and recall and if they are high then F1 will be high. Like macro F1 score where provides the mean of precision and recall per class and averaged working well when used for imbalanced classes as it applies equal treatment across categories, but in weighted it classe by frequency. Output will focus on overall performance to reflect class imbalance. 
 
 ## Hyperparameters
 (fill in details about which hyperparemeters you found most important/relevant while optimizing your model)
