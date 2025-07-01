@@ -7,7 +7,7 @@ Develop a Topic Modeling tool (NLP project using a pre-trained language model), 
 - applying text processing and tokenization techniques,
 - utilizing transfer learning for model development
 - evaluating and optimizing model performance, and
-- and completed final project report
+- completed final project report
 Theme will look to identify underlying topics/themes from the large collections of news groups.
 
 ## Dataset
@@ -18,6 +18,9 @@ Dataset used was the Topic Modeling SetFit/20_newsgroups (https://huggingface.co
 (fill in details about the pre-trained model you selected)
 
 This is a BERTopic model. BERTopic is a flexible and modular topic modeling framework that allows for the generation of easily interpretable topics from large datasets (https://huggingface.co/guibvieira/topic_modelling). 
+
+![image](https://github.com/user-attachments/assets/e8f8d756-38dd-4f16-9207-440a3c32db87)
+
 
 ## Performance Metrics
 (fill in details about your chosen metrics and results)
