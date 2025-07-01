@@ -14,8 +14,8 @@ Theme will look to identify underlying topics/themes from the large collections 
 Improvements implemented in project:
 -  Observed that connectivty impacted ability to complete the full runtime required to complete the train. In response, updated runtime type from CPU to GPU. This significantly improved duration of runtime and eliminated connectivity issues impacting training.
 -  Implemented check points saves mounted to Google Drive folder to improve ability to retrieve training if connectivity resulted in issues and loss of progress on train.
--  
-Note: uploading notebooks from Google Colab to GitHub presented issues regarding metadata widgets which generated an 'Invalid Notebook'. To work around this error and issue, applied code to remove the metadata widgets and maintain the outputs. This generated a clean notebook in Colab that was successfully loaded into GitHub but noted in some notebooks (e.g., 3-pre-trained model) that some of preprocess code indicates 0% but was in fact complete as supported by the continued outputs in the code following. Confirmed the outputs and evalutaions are correct.
+  
+Note: uploading notebooks from Google Colab to GitHub presented multiple issues regarding metadata widgets which generated an 'Invalid Notebook'. To work around this error and issue, applied various code to remove metadata widgets and 'clean' the notebook while maintaining the outputs. This generated a clean notebook in Colab that was successfully loaded into GitHub but noted in some notebooks (e.g., 3-pre-trained model) that some of preprocess code indicates 0% but was in fact complete as supported by the continued outputs in the code following those observations. This is a significant limitation of using Colab and loading to GitHub. Confirmed cirtical outputs in GitHub (e.g., train outputs) aligned with Colab notebooks correctly.
 
 ## Dataset
 (fill in details about the dataset you're using)
