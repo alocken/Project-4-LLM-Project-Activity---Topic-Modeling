@@ -9,7 +9,7 @@ Develop a Topic Modeling tool (NLP project using a pre-trained language model), 
 - evaluating and optimizing model performance, and
 - completed final project report
 
-Theme will look to identify underlying topics/themes from the large collections of news groups.
+Theme: topic modeling on 'news articles'. 
 
 Improvements implemented in project:
 -  Observed that connectivty impacted ability to complete the full runtime required to complete the train. In response, updated runtime type from CPU to GPU. This significantly improved duration of runtime and eliminated connectivity issues impacting training.
