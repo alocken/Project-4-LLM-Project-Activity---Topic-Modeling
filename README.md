@@ -35,12 +35,31 @@ This hybrid approach combined unsupervised topic discovery with supervised learn
 The fine-tuning model used in this project is microsoft/MiniLM-L12-H384-uncased, chosen for its architectural similarity to sentence-transformers/all-MiniLM-L6-v2, which was used for initial embedding generation. MiniLM offers a lightweight and efficient design, making it well-suited for scalable training and deployment. As a general-purpose transformer model pretrained on large corpora, it adapts well to classification tasks even with moderately sized datasets. Fine-tuning was performed using Hugging Face’s Trainer API to streamline training and evaluation workflows.
 
 ## Performance Metrics
-To evaluate the model’s effectiveness, several standard metrics were used. These included accuracy, weighted F1-score, and evaluation loss. In a typical training run, the model achieved an accuracy of approximately 0.81, a weighted F1-score of 0.78, and an evaluation loss of 0.45. The weighted F1-score was particularly emphasized in this project due to class imbalance in the topic labels, where some categories were significantly more frequent than others. These metrics provide a well-rounded view of how well the model handles multi-class classification under imbalanced data conditions. Final values may vary depending on dataset size and label filtering.
+The final model (Model #2) was evaluated using standard classification metrics including accuracy, weighted F1-score, and evaluation loss. After applying class reduction, improving label consistency, and fine-tuning a more powerful transformer backbone (bert-base-uncased), the model achieved significantly better results compared to initial runs. The best evaluation outputs were:
+
+- Evaluation Accuracy: ~42.2%
+- Weighted F1-Score: ~0.31
+- Evaluation Loss: ~2.91
+
+These values marked a major improvement from early baselines where the model performed near random (accuracy ~8%, F1 ~0.03, loss ~6.0). The weighted F1-score was especially important due to the presence of class imbalance in the BERTopic-generated labels. Final values may vary depending on how rare topics are filtered, the model architecture used, and data availability.
 
 ## Hyperparameters
-The model was fine-tuned using a set of carefully selected hyperparameters to balance performance and resource efficiency. A learning rate of 2e-5 was used, as it is a common and effective starting point for transformer-based models. Training was run for 3 epochs, which provided a good trade-off between underfitting and overfitting. The batch size was set to 16, optimized for GPU memory constraints and to maintain stable gradient updates. A weight decay of 0.01 was included as a form of regularization to reduce overfitting. The maximum sequence length was capped at 128 tokens, as the majority of text samples in the dataset were relatively short and did not require longer input lengths.
+The final model (Model #2) was further fine-tuned from the fine-tuning completed in the pre-trained model (initial model) using an improved set of hyperparameters optimized for stability and generalization in a multi-class, class-imbalanced setting. These included:
 
-For future optimization, further hyperparameter could be explored to find more optimal configurations. Additionally, experimenting with alternative lightweight transformers, such as distilbert, may result in further improvements in efficiency or accuracy.
+- Learning Rate: 1e-5; lowered from earlier runs to allow more stable, slower convergence
+- Epochs: 6; increased from 3 to give the model more opportunity to learn from the data
+- Batch Size: 8 per device for both training and evaluation; smaller batch size to encourage better generalization
+- Weight Decay: 0.01; regularization to reduce overfitting
+- Warmup Steps: 100; gradual increase of the learning rate at the beginning to avoid training instability
+- Gradient Clipping (max_grad_norm): 1.0; prevent exploding gradients and ensure smoother updates
+- Max Sequence Length: 128 tokens; aligned with the tokenizer’s expected input and suitable for the average document length
+-Metric for Best Model: f1_weighted; prioritizes performance under class imbalance
+
+These changes were designed in response to early model underperformance and were combined with label filtering and a switch to the more expressive bert-base-uncased model for improved results. These adjustments resulted in significant improvements overall.
 
 ## Potential Next Steps
 The next phase would involve extending the model's applicability beyond the training environment. This includes evaluating its performance on new or real-world text samples. This process would leverage the deployment strategy and address potential ethical considerations detailed in notebook 5_Deployment. Once deployed, it would be important to monitor predictions in production, track performance over time, and support iterative fine-tuning based on user feedback and evolving data.
+
+## Reference: Final Project 4 Link - Model #2 on Hugging Face 
+alocken/topic_modeling_project4 (https://huggingface.co/alocken/topic_modeling_project4)
+![image](https://github.com/user-attachments/assets/9b67f4af-5a8b-40c2-8aff-44b48242a6c2)
