@@ -6,9 +6,9 @@ Develop a Topic Modeling tool (NLP project using a pre-trained language model) f
 - Applying text processing and tokenization techniques,
 - Utilizing transfer learning for model development,
 - Evaluating and optimizing model performance, and
-- Completed final project report.
+- Completing a final project report.
 
-This project focused on topic classification (a specific type of text classification with goal to assign topic labels to text based content) using a transformer-based model. The goal was to classify short texts into meaningful topic categories using a combination of BERTopic for unsupervised clustering and a fine-tuned transformer model for supervised classification.
+This project focused on topic classification (specific type of text classification aimed at assigning topic labels to text-based content) and it combined unsupervised topic modeling using BERTopic (groups similar texts into topics) with a fine-tuned transformer-based model for supervised classification. The goal was to classify short texts into meaningful topic categories based on the clusters discovered during the topic modeling phase.
 
 Improvements implemented in project:
 -  Updated runtime type from CPU to GPU as required. This significantly improved duration of runtime and eliminated connectivity issues impacting training.
