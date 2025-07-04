@@ -1,12 +1,12 @@
-# LLM Project
+# LLM Project 4 - Topic Modeling 
 ## Overall Project Task
 Develop a Topic Modeling tool (NLP project using a pre-trained language model) for 'varied articles', that included: 
-- selecting a topic and dataset,
-- setting up project workspace,
-- applying text processing and tokenization techniques,
-- utilizing transfer learning for model development,
-- evaluating and optimizing model performance, and
-- completed final project report.
+- Selecting a topic and dataset,
+- Setting up project workspace,
+- Applying text processing and tokenization techniques,
+- Utilizing transfer learning for model development,
+- Evaluating and optimizing model performance, and
+- Completed final project report.
 
 This project focused on topic classification (a specific type of text classification with goal to assign topic labels to text based content) using a transformer-based model. The goal was to classify short texts into meaningful topic categories using a combination of BERTopic for unsupervised clustering and a fine-tuned transformer model for supervised classification.
 
