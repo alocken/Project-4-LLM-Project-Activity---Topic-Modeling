@@ -16,6 +16,7 @@ Improvements implemented in project:
 
 ## Dataset
 The dataset consisted of text documents collected from SetFit/20_newsgroups (https://huggingface.co/datasets/SetFit/20_newsgroups)
+
 Each document was clustered into a topic using BERTopic, which generates unsupervised topic labels. Topics with very few samples were filtered out to focus on high-quality clusters. The remaining data was split into train and validation sets using stratified sampling based on topic labels.
 
 ## Pre-trained Model
